@@ -42,7 +42,7 @@ RUN \
  tar xvJf /tmp/calibre-tarball.tar.xz -C \
 	/opt/calibre && \
  cd /opt/calibre && \
- sudo python setup.py install && \
+ python setup.py install && \
  /opt/calibre/calibre_postinstall && \
  dbus-uuidgen > /etc/machine-id && \
  echo "**** cleanup ****" && \
