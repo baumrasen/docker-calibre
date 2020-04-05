@@ -26,6 +26,7 @@ RUN \
 	apt-utils \
 	openssl \
 	ca-certificates \
+	git \
 	curl && \
  echo "**** install calibre ****" && \
  if [ -z ${CALIBRE_RELEASE+x} ]; then \
@@ -42,6 +43,8 @@ RUN \
  tar xvJf /tmp/calibre-tarball.tar.xz -C \
 	/opt && \
 	ln -s /opt/calibre-${CALIBRE_VERSION} /opt/calibre && \
+ cd /opt && \
+ git clone https://github.com/kovidgoyal/bypy.git
  cd /opt/calibre && \
  python setup.py bootstrap && \
  python setup.py build_dep linux && \
