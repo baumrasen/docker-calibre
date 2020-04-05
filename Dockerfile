@@ -44,8 +44,7 @@ RUN \
 	/tmp/calibre-tarball.tar.xz -L \
 	"$CALIBRE_URL" && \
  tar xvJf /tmp/calibre-tarball.tar.xz -C \
-	/opt && \
-	
+	/opt && \	
  cd /opt/calibre && \
  python setup.py bootstrap && \
  python setup.py build_dep linux && \
