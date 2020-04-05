@@ -36,7 +36,6 @@ RUN \
 	CALIBRE_RELEASE=$(curl -sX GET "https://api.github.com/repos/kovidgoyal/calibre/releases/latest" \
 	| jq -r .tag_name); \
  fi && \
- CALIBRE_VERSION="$(echo ${CALIBRE_RELEASE} | cut -c2-)" && \
  mkdir -p \
 	/opt && \
  cd /opt && \
