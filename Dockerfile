@@ -1,4 +1,4 @@
-FROM lsiobase/guacgui
+FROM library/debian
 
 # set version label
 ARG BUILD_DATE
@@ -22,7 +22,9 @@ RUN \
 	python-xdg \
 	ttf-wqy-zenhei \
 	wget \
-	xz-utils && \
+	xz-utils \
+	apt-util \
+	curl && \
  echo "**** install calibre ****" && \
  mkdir -p \
 	/opt/calibre && \
