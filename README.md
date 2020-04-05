@@ -35,6 +35,7 @@ Find us at:
 [![Docker Stars](https://img.shields.io/docker/stars/linuxserver/calibre.svg?style=flat-square&color=E68523&label=stars&logo=docker&logoColor=FFFFFF)](https://hub.docker.com/r/linuxserver/calibre)
 [![Build Status](https://ci.linuxserver.io/view/all/job/Docker-Pipeline-Builders/job/docker-calibre/job/master/badge/icon?style=flat-square)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-calibre/job/master/)
 [![](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/calibre/latest/badge.svg)](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/calibre/latest/index.html)
+![Docker Image CI](https://github.com/baumrasen/docker-calibre/workflows/Docker%20Image%20CI/badge.svg?branch=master)
 
 [Calibre](https://calibre-ebook.com/) is a powerful and easy to use e-book manager. Users say it’s outstanding and a must-have. It’ll allow you to do nearly everything and it takes things a step beyond normal e-book software. It’s also completely free and open source and great for both casual users and computer experts.
 
