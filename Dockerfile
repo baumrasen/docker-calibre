@@ -37,20 +37,13 @@ RUN \
 	| jq -r .tag_name); \
  fi && \
  CALIBRE_VERSION="$(echo ${CALIBRE_RELEASE} | cut -c2-)" && \
-# CALIBRE_URL="https://download.calibre-ebook.com/${CALIBRE_VERSION}/calibre-${CALIBRE_VERSION}.tar.xz" && \
  mkdir -p \
 	/opt && \
-# ln -s /opt/calibre-${CALIBRE_VERSION} /opt/calibre && \
  cd /opt && \
  git clone https://github.com/kovidgoyal/bypy.git && \
  git clone https://github.com/kovidgoyal/calibre.git && \
- git checkout ${CALIBRE_VERSION} && \
-# curl -o \
-#	/tmp/calibre-tarball.tar.xz -L \
-#	"$CALIBRE_URL" && \
-# tar xvJf /tmp/calibre-tarball.tar.xz -C \
-#	/opt && \	
  cd /opt/calibre && \
+ git checkout ${CALIBRE_VERSION} && \
  python setup.py bootstrap && \
  python setup.py build_dep linux && \
  python setup.py install && \
