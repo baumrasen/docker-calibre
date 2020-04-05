@@ -28,21 +28,26 @@ RUN \
 	ca-certificates \
 	curl && \
  echo "**** install calibre ****" && \
- mkdir -p \
-	/opt/calibre && \
  if [ -z ${CALIBRE_RELEASE+x} ]; then \
 	CALIBRE_RELEASE=$(curl -sX GET "https://api.github.com/repos/kovidgoyal/calibre/releases/latest" \
 	| jq -r .tag_name); \
  fi && \
  CALIBRE_VERSION="$(echo ${CALIBRE_RELEASE} | cut -c2-)" && \
  CALIBRE_URL="https://download.calibre-ebook.com/${CALIBRE_VERSION}/calibre-${CALIBRE_VERSION}.tar.xz" && \
+ mkdir -p \
+	/opt/calibre-${CALIBRE_VERSION} && \
  curl -o \
 	/tmp/calibre-tarball.tar.xz -L \
 	"$CALIBRE_URL" && \
  tar xvJf /tmp/calibre-tarball.tar.xz -C \
 	/opt && \
 	ln -s /opt/calibre-${CALIBRE_VERSION} /opt/calibre && \
+ cd /opt && \
+ pwd && \
+ ls && \
  cd /opt/calibre && \
+ pwd && \
+ ls && \
  python setup.py install && \
  /opt/calibre/calibre_postinstall && \
  dbus-uuidgen > /etc/machine-id && \
