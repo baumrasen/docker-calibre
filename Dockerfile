@@ -23,7 +23,7 @@ RUN \
 	ttf-wqy-zenhei \
 	wget \
 	xz-utils \
-	apt-util \
+	apt-utils \
 	curl && \
  echo "**** install calibre ****" && \
  mkdir -p \
