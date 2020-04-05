@@ -30,23 +30,8 @@ RUN \
 	openssl \
 	ca-certificates \
 	git \
+	calibre \
 	curl && \
- echo "**** install calibre ****" && \
- if [ -z ${CALIBRE_RELEASE+x} ]; then \
-	CALIBRE_RELEASE=$(curl -sX GET "https://api.github.com/repos/kovidgoyal/calibre/releases/latest" \
-	| jq -r .tag_name); \
- fi && \
- mkdir -p \
-	/opt && \
- cd /opt && \
- git clone https://github.com/kovidgoyal/bypy.git && \
- git clone https://github.com/kovidgoyal/calibre.git && \
- cd /opt/calibre && \
- git checkout ${CALIBRE_VERSION} && \
- python setup.py bootstrap && \
- python setup.py build_dep linux && \
- python setup.py install && \
- /opt/calibre/calibre_postinstall && \
  dbus-uuidgen > /etc/machine-id && \
  echo "**** cleanup ****" && \
  apt-get clean && \
