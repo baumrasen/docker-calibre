@@ -37,7 +37,7 @@ RUN \
  curl -o \
 	/tmp/calibre-tarball.tar.xz -L \
 	"$CALIBRE_URL" && \
- tar xvJ /tmp/calibre-tarball.txz -C \
+ tar xvJf /tmp/calibre-tarball.txz -C \
 	/opt/calibre && \
  cd /opt/calibre && \
  sudo python setup.py install && \
