@@ -44,7 +44,7 @@ RUN \
 	/opt && \
 	ln -s /opt/calibre-${CALIBRE_VERSION} /opt/calibre && \
  cd /opt && \
- git clone https://github.com/kovidgoyal/bypy.git
+ git clone https://github.com/kovidgoyal/bypy.git && \
  cd /opt/calibre && \
  python setup.py bootstrap && \
  python setup.py build_dep linux && \
