@@ -31,12 +31,14 @@ RUN \
 	| jq -r .tag_name); \
  fi && \
  CALIBRE_VERSION="$(echo ${CALIBRE_RELEASE} | cut -c2-)" && \
- CALIBRE_URL="https://download.calibre-ebook.com/${CALIBRE_VERSION}/calibre-${CALIBRE_VERSION}-x86_64.txz" && \
+ CALIBRE_URL="https://download.calibre-ebook.com/${CALIBRE_VERSION}/calibre-${CALIBRE_VERSION}.tar.xz" && \
  curl -o \
-	/tmp/calibre-tarball.txz -L \
+	/tmp/calibre-tarball.tar.xz -L \
 	"$CALIBRE_URL" && \
- tar xvf /tmp/calibre-tarball.txz -C \
+ tar xvJ /tmp/calibre-tarball.txz -C \
 	/opt/calibre && \
+ cd /opt/calibre && \
+ sudo python setup.py install && \
  /opt/calibre/calibre_postinstall && \
  dbus-uuidgen > /etc/machine-id && \
  echo "**** cleanup ****" && \

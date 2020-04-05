@@ -50,7 +50,7 @@ The architectures supported by this image are:
 
 | Architecture | Tag |
 | :----: | --- |
-| x86-64 | latest |
+| armhf | latest |
 
 
 ## Usage
