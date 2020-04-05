@@ -5,7 +5,7 @@ ARG BUILD_DATE
 ARG VERSION
 ARG CALIBRE_RELEASE
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="aptalca"
+LABEL maintainer="baumrasen"
 
 ENV APPNAME="Calibre" UMASK_SET="022"
 
@@ -24,6 +24,8 @@ RUN \
 	wget \
 	xz-utils \
 	apt-utils \
+	openssl \
+	ca-certificates \
 	curl && \
  echo "**** install calibre ****" && \
  mkdir -p \
@@ -37,7 +39,7 @@ RUN \
  curl -o \
 	/tmp/calibre-tarball.tar.xz -L \
 	"$CALIBRE_URL" && \
- tar xvJf /tmp/calibre-tarball.txz -C \
+ tar xvJf /tmp/calibre-tarball.tar.xz -C \
 	/opt/calibre && \
  cd /opt/calibre && \
  sudo python setup.py install && \
