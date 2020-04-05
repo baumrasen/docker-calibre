@@ -42,12 +42,9 @@ RUN \
  tar xvJf /tmp/calibre-tarball.tar.xz -C \
 	/opt && \
 	ln -s /opt/calibre-${CALIBRE_VERSION} /opt/calibre && \
- cd /opt && \
- pwd && \
- ls && \
  cd /opt/calibre && \
- pwd && \
- ls && \
+ python setup.py bootstrap && \
+ python setup.py build_dep linux && \
  python setup.py install && \
  /opt/calibre/calibre_postinstall && \
  dbus-uuidgen > /etc/machine-id && \
