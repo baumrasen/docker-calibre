@@ -40,7 +40,8 @@ RUN \
 	/tmp/calibre-tarball.tar.xz -L \
 	"$CALIBRE_URL" && \
  tar xvJf /tmp/calibre-tarball.tar.xz -C \
-	/opt/calibre && \
+	/opt && \
+	ln -s /opt/calibre-${CALIBRE_VERSION} /opt/calibre && \
  cd /opt/calibre && \
  python setup.py install && \
  /opt/calibre/calibre_postinstall && \
